@@ -1,18 +1,21 @@
 export default {
     open(eventHandler) {
         const socket = window.io();
+        const {geolocation} = window.navigator;
 
         socket.on('disconnect', () => { window.location = window.location; });
 
-        window.navigator.geolocation.getCurrentPosition(({coords}) => {
-            const { latitude, longitude } = coords;
-            socket.emit('userdata', {
-                coords: {
-                    latitude,
-                    longitude
-                }
+        if(geolocation) {
+            geolocation.getCurrentPosition(({coords}) => {
+                const { latitude, longitude } = coords;
+                socket.emit('userdata', {
+                    coords: {
+                        latitude,
+                        longitude
+                    }
+                });
             });
-        });
+        }
 
         socket.on('userdata', ({username}) => {
             eventHandler({username});
