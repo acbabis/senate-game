@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 6
+cache:
+  directories:
+  - node_modules
+script:
+- npm run build
+- npm test
+deploy:
+  api_key:
+    secure: toTdLdVXDOoBxb7ee4CeIf78I8+MF60cw8Ksot+rFXFbWEg0/8afJQZjfcFWkRJ36nU5avGI1aXVp1oBo6/8TfOGYBcLkQxNuN+XUXwhSxtosjL4K1IO2xTLCTNqanz/REsjgmzh0xrR/lWG4q+6WJ1SJ1HJrGxhbI9EXNPDFp4lrec6Nyj9utly9v/BLXmD2/Z9Kdvnwsg8mBHnawtaOgYfY5gHzH0VPXc6iHPZGWXGCzfRUZemP4PMZCi6O0BPNP1L3EsSwbjfJrP/SojxwKXZ0Mi5+oZaqCpfk4JwWNe5p5iW5ga5W8QVlA8jAB1YfsItjWOMwhy9eTC5iS3j+DNWLFlXfNnBOsQax23L78OScxYQ7NxApkkmWFzzsWFgjSM0AD0/mG+haZnbRpO8ieASsovJlDbgoZoFwH/JckGcrV+rOTBTf2rwAG6yRKPSnmg7UoT20OKGMKzNQGeD7FOuvCluGPPieriygGo6iNN2P+duynz4Hf8l3A6pdIORbvuenpL/sr0inGvTK5PeqRgmm+Kpz/tUnDk6cHlWufn7DLr72QlpgqHFKNd69O06pA1jYFP4u9jj70HaaSEEolXvsxew5ZdSqSLqXrnhUP2MJecL7mw4T+4Pl7mUVrWLMnEoKNoZ2CYhskS0aO38iZzeSsJbD0nZaXETpzqGYAA=
