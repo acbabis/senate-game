@@ -11,8 +11,9 @@
     "socket.io": "^2.0.3"
   },
   "scripts": {
-    "start": "node ./server.js",
+    "install": "npm run build",
     "build": "react-scripts build",
+    "start": "node ./server.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev-start": "concurrently \"npm run dev-client\" \"npm run dev-server\"",
