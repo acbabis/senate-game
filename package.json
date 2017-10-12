@@ -11,12 +11,13 @@
     "socket.io": "^2.0.3"
   },
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "start": "node ./server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "client": "react-scripts start",
-    "server": "node ./node_modules/mission-game-server/src/server.js"
+    "dev-start": "concurrently \"npm run dev-client\" \"npm run dev-server\"",
+    "dev-client": "react-scripts start",
+    "dev-server": "node ./node_modules/mission-game-server/src/server.js"
   },
   "proxy": {
     "/": {
