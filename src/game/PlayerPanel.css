@@ -1,0 +1,33 @@
+.players form {
+  position: relative;
+}
+
+.players form > label {
+  display: flex;
+  margin-top: -1px;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px 0;
+  border-color: #aaa;
+}
+
+.players form input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: .03;
+}
+
+.players form input + label {
+  width: 100%;
+  padding: .5em;
+  font-size: 2em;
+}
+
+.players form[data-nominating="true"] input + label {
+  background-color: lightgreen;
+}
+
+.players form[data-nominating="true"] input:checked + label {
+  background-color: darkgreen;
+}

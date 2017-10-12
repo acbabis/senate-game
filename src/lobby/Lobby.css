@@ -1,0 +1,27 @@
+.lobby .listing button {
+  display: flex;
+  width: 100%;
+  padding: .5em;
+  font-size: 2em;
+  border-width: 1px 0;
+  border-color: grey;
+}
+
+.lobby .listing button .names {
+  flex: 1;
+  display: flex;
+}
+
+.lobby .listing button .names .others {
+  flex: 1;
+  font-size: .5em;
+  text-align: left;
+  margin-left: 1em;
+  font-style: italic;
+  color: #888;
+  vertical-align: bottom;
+}
+
+.lobby .listing button span[role="img"] {
+  line-height: 1em;
+}

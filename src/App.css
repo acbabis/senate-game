@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 10px;
+  background-color: #eee;
+}
+
+h2 {
+  font-size: 3em;
+  padding: .5em;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2em;
+  padding: .5em;
+  text-align: center;
+}
+
+label {
+  text-align: left;
+}
+
+input[type="text"] {
+  border: solid 1px grey;
+}
+
+.menu-container {
+  height: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-container input[type="text"],
+.menu-container label,
+.menu-container button {
+  width: 100%;
+  border-radius: .5em;
+  font-size: 2em;
+}
+
+.menu-container button {
+  background-color: navy;
+  color: white;
+  border: 0;
+}
+
+.menu-container > label {
+  margin-left: 1em;
+}
+
+.menu-container input,
+.menu-container button {
+  height: 3em;
+  padding: 1em;
+}
+
+.menu-container > * + * {
+  margin-top: 1em;
+}
+
