@@ -31,7 +31,6 @@ export default class PlayerPanel extends Component {
     const {game} = this.props;
     const {state, players, playerIndex, succession, nextMissionSize} = game;
     const nominator = succession[0];
-    const nominatorName = players[nominator];
     const isNominating = state === 'nomination' && nominator === playerIndex;
     return (
       <div className="players">

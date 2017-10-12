@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class VotePanel extends Component {
   render() {
     const {game, connection} = this.props;
-    const {players, currentNominations, hasMadeSelection} = game;
+    const {hasMadeSelection} = game;
     return (
       <div className="vote">
         {

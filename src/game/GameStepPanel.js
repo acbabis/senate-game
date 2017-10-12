@@ -28,7 +28,6 @@ export default class NominationPanel extends Component {
             </h3>
           } else if(state === 'mission') {
             const isPlayerOnMission = currentMissionGroup.includes(playerIndex);
-            let missionString;
             if(isPlayerOnMission) {
               return <h3>On committee with {Util.listFormat(currentMissionGroup
                 .filter(index => index !== playerIndex)
