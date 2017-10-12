@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+button, input, label {
+  cursor: pointer;
+}
+
 html, body, #root, .App {
   height: 100%;
 }
