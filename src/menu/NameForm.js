@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 export default class NameForm extends Component {
-  setUsername({target}) {
+  setUsername(event) {
+    event.preventDefault();
     const {connection, onDone} = this.props;
-    const username = new FormData(target).get('username');
+    const username = new FormData(event.target).get('username');
     if(username) {
       connection.setUsername(username);
     }
