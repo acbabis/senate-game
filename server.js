@@ -12,6 +12,18 @@ const ConnectionController = require('mission-game-server').ConnectionController
 const app = express();
 const server = http.createServer(app);
 
+if (!Object.entries) {
+    Object.entries = (obj) => {
+        var ownProps = Object.keys(obj),
+            i = ownProps.length,
+            resArray = new Array(i); // preallocate the Array
+        while (i--)
+            resArray[i] = [ownProps[i], obj[ownProps[i]]];
+        
+        return resArray;
+    };
+}
+
 // React static content bundle
 app.use(express.static('build'));
 
