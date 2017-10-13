@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Util from '../Util';
-
 export default class NominationPanel extends Component {
   render() {
     const {game} = this.props;
@@ -9,7 +7,6 @@ export default class NominationPanel extends Component {
       state, players, playerIndex,
       succession, nextMissionSize,
       hasMadeSelection,
-      currentNominations,
       currentMissionGroup,
       missionHistory
     } = game;
