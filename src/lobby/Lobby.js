@@ -44,7 +44,7 @@ export default class Lobby extends Component {
           }
           {
             rooms.password.map(({id, players}) =>
-              <button key={id} onClick={() => this.joinGame(id)}>
+              <button key={id} onClick={() => this.joinGame(id, true)}>
                 <div className="names">
                   <div className="host">{Util.possessiveFormOf(players[0])} game</div>
                   <div className="others">{players.slice(1).join(', ')}</div>

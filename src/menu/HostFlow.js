@@ -50,7 +50,7 @@ export default class HostFlow extends Component {
         </button>
         {
           passwordMode ? 
-            <form className="passwordOverlay" onSubmit={e => this.hostPasswordGame(e)}>
+            <form className="password-overlay" onSubmit={e => this.hostPasswordGame(e)}>
               <input
                 type="text"
                 placeholder="Password"
