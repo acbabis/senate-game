@@ -5,3 +5,9 @@
 
   height: 100%;
 }
+
+.game .top {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

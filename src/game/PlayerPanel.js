@@ -80,7 +80,11 @@ export default class PlayerPanel extends Component {
               </label>
             })
           }
-          <button disabled={nominations.length !== nextMissionSize}>Nominate</button>
+          {
+            isNominating ?
+            <button className="nominate action" disabled={nominations.length !== nextMissionSize}>Nominate</button> :
+            ''
+          }
         </form>
       </div>
     );

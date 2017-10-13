@@ -1,0 +1,21 @@
+.vote .buttons {
+  padding: 1em;
+  text-align: center;
+}
+
+.vote .buttons button + button {
+  margin-left: 1em;
+}
+
+.vote button {
+  color: #ffe;
+  width: 6em;
+}
+
+.vote button.approve {
+  background-color: darkgreen;
+}
+
+.vote button.reject {
+  background-color: darkred;
+}

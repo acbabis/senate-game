@@ -9,9 +9,9 @@ export default class VotePanel extends Component {
         {
           hasMadeSelection ?
             <div>Waiting for all votes</div> :
-            <div>
-              <button onClick={() => connection.sendVote(true)}>Approve</button>
-              <button onClick={() => connection.sendVote(false)}>Reject</button>
+            <div className="buttons">
+              <button className="action approve" onClick={() => connection.sendVote(true)}>Approve</button>
+              <button className="action reject" onClick={() => connection.sendVote(false)}>Reject</button>
             </div>
         }
       </div>

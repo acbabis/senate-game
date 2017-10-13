@@ -34,6 +34,13 @@ label {
   text-align: left;
 }
 
+button.action {
+  padding: .5em;
+  font-size: 2em;
+  border: 0;
+  border-radius: .5em;
+}
+
 input[type="text"] {
   border: solid 1px grey;
 }

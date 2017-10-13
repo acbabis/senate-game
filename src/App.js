@@ -4,6 +4,7 @@ import './lobby/Lobby.css';
 import './game/Game.css';
 import './game/PlayerPanel.css';
 import './game/RolePanel.css';
+import './game/VotePanel.css';
 import './menu/NameForm.css';
 
 import SocketConnection from './SocketConnection';
