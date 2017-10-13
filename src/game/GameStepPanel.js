@@ -8,6 +8,7 @@ export default class NominationPanel extends Component {
     const {
       state, players, playerIndex,
       succession, nextMissionSize,
+      hasMadeSelection,
       currentNominations,
       currentMissionGroup,
       missionHistory
@@ -23,9 +24,11 @@ export default class NominationPanel extends Component {
               return <h3>Waiting for committee nomination from {players[nominator]}</h3>
             }
           } else if(state === 'vote') {
-            return <h3>
-              Voting on committee: {Util.listFormat(currentNominations.map(index => players[index]))}
-            </h3>
+            if(hasMadeSelection) {
+              return <h3>Waiting for all votes</h3>
+            } else {
+              return <h3>Voting on committee</h3>
+            }
           } else if(state === 'mission') {
             const isPlayerOnMission = currentMissionGroup.includes(playerIndex);
             if(isPlayerOnMission) {

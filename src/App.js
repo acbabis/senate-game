@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import './lobby/Lobby.css';
+import './game/CommitteeHistoryPanel.css';
+import './game/CommitteePanel.css';
 import './game/Game.css';
 import './game/PlayerPanel.css';
 import './game/RolePanel.css';
