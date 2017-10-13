@@ -6,11 +6,11 @@ export default class CommitteePanel extends Component {
     const {playerIndex, currentMissionGroup, hasMadeSelection} = game;
     const isPlayerOnMission = currentMissionGroup.includes(playerIndex);
     if(isPlayerOnMission && !hasMadeSelection) {
-      return <div className="vote"> 
-        <button onClick={() => connection.sendMissionAction(true)}>
+      return <div className="committee"> 
+        <button className="action succeed" onClick={() => connection.sendMissionAction(true)}>
           Succeed
         </button>
-        <button onClick={() => connection.sendMissionAction(false)}>
+        <button className="action fail" onClick={() => connection.sendMissionAction(false)}>
           Fail
         </button>
       </div>

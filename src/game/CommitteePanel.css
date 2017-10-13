@@ -1,0 +1,21 @@
+.committee {
+  padding: .5em;
+  text-align: center;
+}
+
+.committee button + button {
+  margin-left: 1em;
+}
+
+.committee button {
+  color: white;
+  width: 6em;
+}
+
+.committee button.succeed {
+  background-color: rgb(22, 198, 12);
+}
+
+.committee button.fail {
+  background-color: rgb(240, 58, 23);
+}

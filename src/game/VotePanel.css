@@ -13,9 +13,13 @@
 }
 
 .vote button.approve {
-  background-color: darkgreen;
+  background-color: #eee;
+  color: #333;
+  border: solid 1px #222;
 }
 
 .vote button.reject {
-  background-color: darkred;
+  background-color: #222;
+  color: #eee;
+  border: solid 1px #222;
 }
