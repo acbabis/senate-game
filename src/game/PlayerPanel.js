@@ -29,15 +29,26 @@ export default class PlayerPanel extends Component {
   render() {
     const {nominations} = this.state;
     const {game} = this.props;
-    const {state, players, playerIndex, succession, nextMissionSize} = game;
+    const {
+      state, players, playerIndex,
+      succession, nextMissionSize,
+      currentNominations, currentMissionGroup,
+      lastVote
+    } = game;
     const nominator = succession[0];
-    const isNominating = state === 'nomination' && nominator === playerIndex;
+    const isNominationStep = state === 'nomination';
+    const isVoteStep = state === 'vote';
+    const isCommitteeStep = state === 'mission';
+    const isSpeaker = nominator === playerIndex;
+    const showSpeaker = isNominationStep || isVoteStep;
+    const isNominating = isSpeaker && isNominationStep;
     return (
       <div className="players">
         <form data-nominating={isNominating} onSubmit={e => this.sendNominations(e)}>
           {
             players.map((player, index) => {
               const labelId = `player-checkbox-${index}`;
+              const isPlayerSpeaker = nominator === index;
               return <label key={index}>
                 <input
                   id={labelId}
@@ -45,8 +56,26 @@ export default class PlayerPanel extends Component {
                   disabled={!isNominating}
                   checked={nominations.includes(index)}
                   onChange={({target}) => this.togglePlayer(index, target.checked)} />
-                <label htmlFor={labelId}>
-                  {player}
+                <label className="player" htmlFor={labelId}>
+                  <div className="player-name">{player}</div>
+                  <div className="player-icons">
+                    <span
+                      data-applicable={isPlayerSpeaker && showSpeaker}
+                      role="img"
+                      aria-label="Speaker"
+                      title="Speaker">&#x2696;</span>
+                    <span
+                      data-applicable={(isVoteStep && currentNominations.includes(index)) || (isCommitteeStep && currentMissionGroup.includes(index))}
+                      role="img"
+                      aria-label="On Committee"
+                      title="On Committee">&#x1f4dc;</span>
+                    <span
+                      data-applicable={!!lastVote}
+                      role="img"
+                      aria-label={lastVote && lastVote[index] ? "Approved Committee" : "Rejected Committee"}
+                      title={lastVote && lastVote[index] ? "Approved Committee" : "Rejected Committee"}
+                    >{lastVote && lastVote[index] ? '\u26aa' : '\u26ab'}</span>
+                  </div>
                 </label>
               </label>
             })

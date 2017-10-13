@@ -18,16 +18,34 @@
   opacity: .03;
 }
 
-.players form input + label {
+.players label.player {
+  display: flex;
   width: 100%;
   padding: .5em;
   font-size: 2em;
 }
 
-.players form[data-nominating="true"] input + label {
+.players form[data-nominating="true"] input + label.player {
   background-color: lightgreen;
 }
 
-.players form[data-nominating="true"] input:checked + label {
+.players form[data-nominating="true"] input:checked + label.player {
   background-color: darkgreen;
+}
+
+.players .player-name {
+  flex: 1;
+}
+
+.players .player-icons {
+  height: 0;
+  line-height: 1em;
+}
+
+.players .player-icons span + span {
+  margin-left: .5em;
+}
+
+.players form [data-applicable="false"] {
+  visibility: hidden;
 }
