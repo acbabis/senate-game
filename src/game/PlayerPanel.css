@@ -33,6 +33,15 @@
   border-color: #aaa;
 }
 
+.players [data-nominated="true"] label.player {
+  background-color: skyblue;
+  border-color: #006;
+}
+
+.players [data-nominated="true"] + label label.player {
+  border-top-color: #006;
+}
+
 .players form[data-nominating="true"] input + label.player {
   background-color: lightgreen;
   border-color: #383;

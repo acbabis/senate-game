@@ -44,12 +44,16 @@ export default class PlayerPanel extends Component {
     const isNominating = isSpeaker && isNominationStep;
     return (
       <div className="players">
-        <form data-nominating={isNominating} onSubmit={e => this.sendNominations(e)}>
+        <form data-nominating={isNominating}
+          data-voting={isVoteStep}
+          onSubmit={e => this.sendNominations(e)}
+        >
           {
             players.map((player, index) => {
               const labelId = `player-checkbox-${index}`;
               const isPlayerSpeaker = nominator === index;
-              return <label key={index}>
+              const isPlayerNominated = isVoteStep && currentNominations.includes(index);
+              return <label key={index} data-nominated={isPlayerNominated}>
                 <input
                   id={labelId}
                   type="checkbox"
