@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Util from '../Util';
 
+import spinner from './spinner.svg';
+
 export default class LobbyRoom extends Component {
   constructor() {
     super();
@@ -12,6 +14,9 @@ export default class LobbyRoom extends Component {
 
   render() {
     const {connection, room, isUserHost} = this.props;
+    if(!room) {
+      return null;
+    }
     const {players} = room;
     const host = players[0];
     const otherPlayers = players.slice(1);
@@ -27,29 +32,27 @@ export default class LobbyRoom extends Component {
           }
         </div>
         {
-          (() => {
-            if(isUserHost) {
-              return <div className="menu-container">
-                <button
-                  className="start"
-                  disabled={players.length < 5}
-                  onClick={() => connection.startGame()}>Start</button>
-                <button
-                  className="leave"
-                  onClick={() => connection.leaveGame()}>Leave</button>
-              </div>
-            } else {
-              return <div>
-                Loader
-                <div className="menu-container">
-                  <button
-                    className="leave"
-                    onClick={() => connection.leaveGame()}>Leave</button>
-                </div>
-              </div>
-            }
-          })()
+          isUserHost ? '' :
+            <img
+              src={spinner}
+              alt="Loading"
+              width="100"
+              height="100"
+            />
         }
+        <div className="menu-container">
+          {
+            isUserHost ?
+              <button
+                className="start"
+                disabled={players.length < 5}
+                onClick={() => connection.startGame()}>Start</button> : ''
+          }
+          <button
+            className="leave"
+            onClick={() => connection.leaveGame()}>Leave</button>
+        </div>
+
       </div>
     );
   }

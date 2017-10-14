@@ -1,4 +1,11 @@
+.lobby-room {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .lobby-room .players {
+  flex: 1;
   padding: 0 2em;
 }
 
@@ -9,6 +16,14 @@
 .lobby-room .players .player {
   color: #333;
   font-weight: bold;
+}
+
+.lobby-room img {
+  margin: 0 auto;
+}
+
+.lobby-room .menu-container {
+  height: initial;
 }
 
 .lobby-room button.leave {
