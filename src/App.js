@@ -39,6 +39,8 @@ export default class App extends Component {
       const {room, game} = stateChange;
       if(room) {
         this.setState(Object.assign({}, {view: VIEW_ROOM}, stateChange));
+      } else if(room === null) {
+        this.setState(Object.assign({}, {view: VIEW_LOBBY}, stateChange));
       } else if(game) {
         this.setState(Object.assign({}, {view: VIEW_GAME}, stateChange));
       } else {
