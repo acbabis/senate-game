@@ -10,6 +10,10 @@ export default class Lobby extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.connection.sendLocation();
+  }
+
   joinGame(id, requiresPassword) {
     const {connection} = this.props;
     if(requiresPassword) {

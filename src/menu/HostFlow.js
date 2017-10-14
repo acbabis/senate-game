@@ -10,6 +10,7 @@ export default class HostFlow extends Component {
 
   hostLocalGame() {
     const {connection, onDone} = this.props;
+    connection.sendLocation();
     connection.hostLocalGame();
     if(onDone) {
       onDone();
