@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.16.2",
+    "express-https-redirect": "^1.0.0",
     "mission-game-server": "git+https://github.com/acbabis/mission-game-server.git",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

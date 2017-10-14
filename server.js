@@ -3,6 +3,7 @@
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
+const httpsRedirect = require('express-https-redirect');
 
 const { NODE_ENV, PORT = 3000 } = process.env;
 
@@ -23,6 +24,9 @@ if (!Object.entries) {
         return resArray;
     };
 }
+
+// Require index.html to be HTTPS
+app.use('/', httpsRedirect());
 
 // React static content bundle
 app.use(express.static('build'));
