@@ -26,7 +26,7 @@ export default class Lobby extends Component {
         <div className="top-menu">
           {
             onHost ?
-            <button onClick={onHost}>Host</button> :
+            <button className="action host" onClick={onHost}>Host</button> :
             ''
           }
           <h2>Lobby</h2>
