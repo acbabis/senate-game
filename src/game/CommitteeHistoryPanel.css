@@ -1,0 +1,24 @@
+.history {
+    display: flex;
+    padding: 1em 5em;
+}
+
+.history .mission {
+    flex: 1;
+    text-align: center;
+    font-size: 3em;
+    line-height: 1em;
+}
+
+.history .mission .front {
+    color: #999;
+    font-weight: bold;
+}
+
+.history .mission[data-completed="true"] .front {
+    display: none;
+}
+
+.history .mission[data-completed="false"] .back {
+    display: none;
+}
