@@ -40,7 +40,7 @@ export default class HostFlow extends Component {
       <div className="select-lobby-type menu-container">
         <h3>How will people join?</h3>
         <button className="local" onClick={() => this.hostLocalGame()}>
-          GPS (same room only)
+          Local (GPS)
         </button>
         <button className="link" onClick={() => this.hostLinkGame()}>
           Link
