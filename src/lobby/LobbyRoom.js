@@ -17,20 +17,39 @@ export default class LobbyRoom extends Component {
     const otherPlayers = players.slice(1);
     return (
       <div className="lobby-room">
-        <h3>{Util.possessiveFormOf(host)} Game</h3>
-        <p>{Util.listFormat(otherPlayers)}</p>
+        <h2>{Util.possessiveFormOf(host)} Game</h2>
+        <div className="players">
+          <span>Players: </span> <span className="player">{host}</span>
+          {
+            otherPlayers.map((player, index) => 
+              <span key={index}>, <span className="player">{player}</span></span>
+            )
+          }
+        </div>
         {
-          isUserHost ?
-            <div>
-              <button
-                disabled={players.length < 5}
-                onClick={() => connection.startGame()}>Start</button>
-            </div> :
-            <div>
-              Loader
-            </div>
+          (() => {
+            if(isUserHost) {
+              return <div className="menu-container">
+                <button
+                  className="start"
+                  disabled={players.length < 5}
+                  onClick={() => connection.startGame()}>Start</button>
+                <button
+                  className="leave"
+                  onClick={() => connection.leaveGame()}>Leave</button>
+              </div>
+            } else {
+              return <div>
+                Loader
+                <div className="menu-container">
+                  <button
+                    className="leave"
+                    onClick={() => connection.leaveGame()}>Leave</button>
+                </div>
+              </div>
+            }
+          })()
         }
-        <button onClick={() => connection.leaveGame()}>Leave</button>
       </div>
     );
   }

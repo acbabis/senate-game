@@ -68,6 +68,10 @@ input[type="text"] {
   border: 0;
 }
 
+.menu-container button:disabled {
+  background-color: gray;
+}
+
 .menu-container > label {
   margin-left: 1em;
 }

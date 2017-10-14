@@ -6,6 +6,7 @@ import './game/Game.css';
 import './game/PlayerPanel.css';
 import './game/RolePanel.css';
 import './game/VotePanel.css';
+import './lobby/LobbyRoom.css';
 import './lobby/Lobby.css';
 import './menu/HostFlow.css';
 import './menu/NameForm.css';
