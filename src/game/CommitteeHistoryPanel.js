@@ -16,10 +16,10 @@ export default class CommitteeHistoryPanel extends Component {
                 data-active={isMissionActive}
                 data-completed={!!mission}
               >
-                <div class="front">
+                <div className="front">
                   <span>{missionSizes[index]}</span>
                 </div>
-                <div class="back">
+                <div className="back">
                   {(() => {
                     if(mission) {
                       const {isFailure} = mission;
