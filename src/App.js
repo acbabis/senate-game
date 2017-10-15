@@ -49,6 +49,16 @@ export default class App extends Component {
     })
   }
 
+  onNameSet() {
+    this.setState({view: VIEW_FLOW});
+    const {search} = window.location;
+    const gameId = search.slice(1);
+    if(gameId) {
+      this.connection.joinGame(gameId);
+      window.history.pushState('string', document.title, '/');
+    }
+  }
+
   render() {
     const {connection} = this;
     const {username, room, rooms, game, isUserHost} = this.state;
@@ -60,7 +70,7 @@ export default class App extends Component {
               return <NameForm
                 username={username}
                 connection={connection}
-                onDone={() => this.setState({view: VIEW_FLOW})} />
+                onDone={() => this.onNameSet()} />
             case VIEW_FLOW:
               return <div className="select-flow menu-container">
                 <button className="host" onClick={() => this.setState({view: VIEW_HOST_SELECT})}>Host</button>
