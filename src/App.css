@@ -13,9 +13,11 @@ html, body, #root, .App {
 }
 
 body {
+  margin: 0 auto;
   font-family: sans-serif;
   font-size: 10px;
   background-color: #eee;
+  max-width: 80em;
 }
 
 h2 {
