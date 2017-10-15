@@ -83,7 +83,7 @@ export default class PlayerPanel extends Component {
                       role="img"
                       aria-label={lastVote && lastVote[index] ? "Approved Committee" : "Rejected Committee"}
                       title={lastVote && lastVote[index] ? "Approved Committee" : "Rejected Committee"}
-                    >{lastVote && lastVote[index] ? '\u26aa' : '\u26ab'}</span>
+                    >{lastVote && lastVote[index] ? '⚪' : '⚫'}</span>
                   </div>
                 </label>
               </label>
