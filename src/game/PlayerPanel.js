@@ -32,7 +32,8 @@ export default class PlayerPanel extends Component {
     const {
       state, players, playerIndex,
       succession, nextMissionSize,
-      currentNominations, currentMissionGroup,
+      currentNominations, rejectedNominations,
+      currentMissionGroup,
       lastVote
     } = game;
     const nominator = succession[0];
@@ -53,6 +54,7 @@ export default class PlayerPanel extends Component {
               const labelId = `player-checkbox-${index}`;
               const isPlayerSpeaker = nominator === index;
               const isPlayerNominated = isVoteStep && currentNominations.includes(index);
+              const wasNominationRejected = !!rejectedNominations && rejectedNominations.includes(index);
               return <label key={index} data-nominated={isPlayerNominated}>
                 <input
                   id={labelId}
@@ -64,10 +66,13 @@ export default class PlayerPanel extends Component {
                   <div className="player-name">{player}</div>
                   <div className="player-icons">
                     <span
-                      data-applicable={isPlayerSpeaker && showSpeaker}
+                      data-applicable={(isPlayerSpeaker && showSpeaker) || wasNominationRejected}
                       role="img"
-                      aria-label="Speaker"
-                      title="Speaker">&#x2696;</span>
+                      aria-label={wasNominationRejected ? 'Nomination Rejected' : 'Speaker'}
+                      title={wasNominationRejected ? 'Nomination Rejected' : 'Speaker'}
+                    >
+                      {wasNominationRejected ? '👎' : '⚖️'}
+                    </span>
                     <span
                       data-applicable={(isVoteStep && currentNominations.includes(index)) || (isCommitteeStep && currentMissionGroup.includes(index))}
                       role="img"
