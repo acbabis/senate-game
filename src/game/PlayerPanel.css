@@ -1,28 +1,28 @@
-.players {
+.players-panel {
   flex: 1;
 }
 
-.players form {
+.players-panel form {
   position: relative;
   display: flex;
   height: 100%;
   flex-direction: column;
 }
 
-.players form > label {
+.players-panel form > label {
   display: flex;
   margin-top: -1px;
   width: 100%;
 }
 
-.players form input {
+.players-panel form input {
   position: absolute;
   width: 1px;
   height: 1px;
   opacity: .03;
 }
 
-.players label.player {
+.players-panel label.player {
   display: flex;
   width: 100%;
   padding: .5em;
@@ -33,39 +33,39 @@
   border-color: #aaa;
 }
 
-.players [data-nominated="true"] label.player {
+.players-panel [data-nominated="true"] label.player {
   background-color: skyblue;
   border-color: #006;
 }
 
-.players [data-nominated="true"] + label label.player {
+.players-panel [data-nominated="true"] + label label.player {
   border-top-color: #006;
 }
 
-.players form[data-nominating="true"] input + label.player {
+.players-panel form[data-nominating="true"] input + label.player {
   background-color: lightgreen;
   border-color: #383;
 }
 
-.players form[data-nominating="true"] input:checked + label.player {
+.players-panel form[data-nominating="true"] input:checked + label.player {
   background-color: darkgreen;
   color: white;
 }
 
-.players .player-name {
+.players-panel .player-name {
   flex: 1;
 }
 
-.players .player-icons {
+.players-panel .player-icons {
   height: 0;
   line-height: 1em;
 }
 
-.players .player-icons span + span {
+.players-panel .player-icons span + span {
   margin-left: .5em;
 }
 
-.players form [data-applicable="false"] {
+.players-panel form [data-applicable="false"] {
   visibility: hidden;
 }
 

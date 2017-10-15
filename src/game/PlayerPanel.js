@@ -44,7 +44,7 @@ export default class PlayerPanel extends Component {
     const showSpeaker = isNominationStep || isVoteStep;
     const isNominating = isSpeaker && isNominationStep;
     return (
-      <div className="players">
+      <div className="players-panel">
         <form data-nominating={isNominating}
           data-voting={isVoteStep}
           onSubmit={e => this.sendNominations(e)}
