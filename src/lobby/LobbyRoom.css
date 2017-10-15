@@ -4,7 +4,9 @@
   height: 100%;
 }
 
-.lobby-room .players {
+.lobby-room .middle {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   padding: 0 2em;
 }
@@ -16,6 +18,22 @@
 .lobby-room .players .player {
   color: #333;
   font-weight: bold;
+}
+
+.lobby-room .invite {
+  margin: 2em auto 0 auto;
+  padding: 1.5em;
+  text-align: center;
+  background-color: rgb(250, 220, 150);
+  border-radius: 1em;
+}
+
+.lobby-room .invite h3 {
+  padding-top: 0;
+}
+
+.lobby-room .invite a {
+  font-size: 2em;
 }
 
 .lobby-room img {

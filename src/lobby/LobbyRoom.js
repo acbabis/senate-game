@@ -17,18 +17,29 @@ export default class LobbyRoom extends Component {
     if(!room) {
       return null;
     }
-    const {players} = room;
+    const {id, players, type} = room;
     const host = players[0];
     const otherPlayers = players.slice(1);
     return (
       <div className="lobby-room">
         <h2>{Util.possessiveFormOf(host)} Game</h2>
-        <div className="players">
-          <span>Players: </span> <span className="player">{host}</span>
+        <div className="middle">
+          <div className="players">
+            <span>Players: </span> <span className="player">{host}</span>
+            {
+              otherPlayers.map((player, index) => 
+                <span key={index}>, <span className="player">{player}</span></span>
+              )
+            }
+          </div>
           {
-            otherPlayers.map((player, index) => 
-              <span key={index}>, <span className="player">{player}</span></span>
-            )
+            type === 'link' ?
+              <div className="invite">
+                <h3>Share this Link</h3>
+                <a href={window.location.host + '?' + id}>
+                  {window.location.host + '?' + id}
+                </a>
+              </div> : ''
           }
         </div>
         {
