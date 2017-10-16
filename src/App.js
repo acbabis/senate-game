@@ -36,8 +36,12 @@ export default class App extends Component {
 
   componentDidMount() {
     this.connection = SocketConnection.open(stateChange => {
-      const {room, game} = stateChange;
-      if(room) {
+      const {room, game, error} = stateChange;
+      if(error) {
+        if(error.match(/password/i)) {
+          alert(error);
+        }
+      } else if(room) {
         this.setState(Object.assign({}, {view: VIEW_ROOM}, stateChange));
       } else if(room === null) {
         this.setState(Object.assign({}, {view: VIEW_LOBBY}, stateChange));

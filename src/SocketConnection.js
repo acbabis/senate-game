@@ -34,6 +34,7 @@ export default {
         });
 
         socket.on('service-error', (error) => {
+            eventHandler({error});
             console.error(error);
         });
 
