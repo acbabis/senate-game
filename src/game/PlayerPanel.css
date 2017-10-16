@@ -52,6 +52,15 @@
   color: white;
 }
 
+.players-panel [data-traitor="true"] label.player {
+  background-color: lightcoral;
+  border-color: darkred;
+}
+
+.players-panel [data-traitor="true"] + label label.player {
+  border-top-color: darkred;
+}
+
 .players-panel .player-name {
   flex: 1;
 }

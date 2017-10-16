@@ -33,13 +33,14 @@ export default class PlayerPanel extends Component {
       state, players, playerIndex,
       succession, nextMissionSize,
       currentNominations, rejectedNominations,
-      currentMissionGroup,
+      currentMissionGroup, badFaction,
       lastVote
     } = game;
     const nominator = succession[0];
     const isNominationStep = state === 'nomination';
     const isVoteStep = state === 'vote';
     const isCommitteeStep = state === 'mission';
+    const showTraitors = state === 'end';
     const isSpeaker = nominator === playerIndex;
     const showSpeaker = isNominationStep || isVoteStep;
     const isNominating = isSpeaker && isNominationStep;
@@ -55,7 +56,11 @@ export default class PlayerPanel extends Component {
               const isPlayerSpeaker = nominator === index;
               const isPlayerNominated = isVoteStep && currentNominations.includes(index);
               const wasNominationRejected = !!rejectedNominations && rejectedNominations.includes(index);
-              return <label key={index} data-nominated={isPlayerNominated}>
+              const markAsTraitor = showTraitors && badFaction.includes(index);
+              return <label
+                key={index}
+                data-nominated={isPlayerNominated}
+                data-traitor={markAsTraitor}>
                 <input
                   id={labelId}
                   type="checkbox"
