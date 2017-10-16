@@ -20,6 +20,10 @@ export default class NameForm extends Component {
     }
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   render() {
     const {username} = this.props;
     return (
@@ -32,7 +36,7 @@ export default class NameForm extends Component {
             type="text"
             placeholder={username}
             onChange={({target}) => this.setState({username: target.value})}
-            autoFocus/>
+            ref={input => this.input = input} />
           <button>Proceed</button>
         </form>
       </div>

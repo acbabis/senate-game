@@ -35,6 +35,10 @@ export default class HostFlow extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.passwordInput.focus();
+  }
+
   render() {
     const {passwordMode} = this.state;
     return (
@@ -53,6 +57,7 @@ export default class HostFlow extends Component {
           passwordMode ? 
             <form className="password-overlay" onSubmit={e => this.hostPasswordGame(e)}>
               <input
+                ref={input => this.passwordInput = input}
                 type="text"
                 placeholder="Password"
                 onChange={({target}) => this.setState({password: target.value})}/>
