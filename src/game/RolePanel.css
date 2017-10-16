@@ -3,4 +3,6 @@
   height: 5em;
   line-height: 5em;
   text-align: center;
+  user-select: none;
+  cursor: default;
 }
