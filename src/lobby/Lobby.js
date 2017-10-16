@@ -37,7 +37,7 @@ export default class Lobby extends Component {
         </div>
         <div className="listing">
           {
-            rooms.local.map(({id, players}) =>
+            rooms.local.filter(({players}) => players.length < 10).map(({id, players}) =>
               <button key={id} onClick={() => this.joinGame(id)}>
                 <div className="names">
                   <div className="host">{Util.possessiveFormOf(players[0])} game</div>
@@ -47,7 +47,7 @@ export default class Lobby extends Component {
             )
           }
           {
-            rooms.password.map(({id, players}) =>
+            rooms.password.filter(({players}) => players.length < 10).map(({id, players}) =>
               <button key={id} onClick={() => this.joinGame(id, true)}>
                 <div className="names">
                   <div className="host">{Util.possessiveFormOf(players[0])} game</div>
