@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 export default class NameForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      lastUsername: localStorage.username || ''
+      username: localStorage.lastUsername || ''
     };
   }
 
@@ -27,8 +27,8 @@ export default class NameForm extends Component {
   }
 
   render() {
-    const {lastUsername} = this.state;
-    const {username} = this.props;
+    const {username} = this.state;
+    const {currentUsername} = this.props;
 
     return (
       <div className="enter-name">
@@ -38,8 +38,8 @@ export default class NameForm extends Component {
             id="username"
             name="username"
             type="text"
-            value={lastUsername || ''}
-            placeholder={username}
+            value={username}
+            placeholder={currentUsername}
             onChange={({target}) => this.setState({username: target.value})}
             ref={input => this.input = input} />
           <button>Proceed</button>

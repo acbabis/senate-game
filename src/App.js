@@ -73,7 +73,7 @@ export default class App extends Component {
           switch(this.state.view) {
             case VIEW_NAME:
               return <NameForm
-                username={username}
+                currentUsername={username}
                 connection={connection}
                 onDone={() => this.onNameSet()} />
             case VIEW_FLOW:
