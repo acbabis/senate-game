@@ -18,8 +18,9 @@ export default class RolePanel extends Component {
     const {isViewingRole} = this.state;
     const {game} = this.props;
     const {players, badFaction, playerIndex} = game;
+    const isTraitor = badFaction && badFaction.includes(playerIndex);
     let accompliceString;
-    if(badFaction) {
+    if(isTraitor) {
       const accomplices = badFaction
         .filter(index => index !== playerIndex)
         .map(index => players[index]);
@@ -34,7 +35,7 @@ export default class RolePanel extends Component {
         onTouchEnd={() => this.toggleRole(false)}>
       {
         isViewingRole ?
-          (badFaction ?
+          (isTraitor ?
             <span className="evil">
               {`Traitor with ${accompliceString}`}
             </span> : 
