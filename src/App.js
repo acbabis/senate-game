@@ -30,7 +30,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      view: VIEW_NAME
+      view: VIEW_NAME,
+      hasPlayerLeft: false
     };
   }
 
@@ -65,7 +66,7 @@ export default class App extends Component {
 
   render() {
     const {connection} = this;
-    const {username, room, rooms, game, isUserHost} = this.state;
+    const {hasPlayerLeft, username, room, rooms, game, isUserHost} = this.state;
     return (
       <div className="App">
         {(() => {
@@ -93,6 +94,20 @@ export default class App extends Component {
               return <Game game={game} connection={connection} />
             default:
               break;
+          }
+        })()}
+        {(() => {
+          if(!hasPlayerLeft) {
+            return null;
+          } else {
+            return <div
+              className="leave-message"
+              onClick={() => this.setState({hasPlayerLeft: false, view: VIEW_LOBBY})}
+            >
+              <h2>We're sorry</h2>
+              <p>A player has left the game.</p>
+              <p>Returning to lobby.</p>
+            </div>
           }
         })()}
       </div>

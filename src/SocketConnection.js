@@ -29,8 +29,12 @@ export default {
             }
         });
 
-        socket.on('game', (game) => {
-            eventHandler({ game });
+        socket.on('game', ({type, game}) => {
+            if(type === 'leave') {
+                eventHandler({game, hasPlayerLeft: true});
+            } else {
+                eventHandler({game});
+            }
         });
 
         socket.on('service-error', (error) => {
