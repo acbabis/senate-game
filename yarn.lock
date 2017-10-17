@@ -4327,7 +4327,7 @@ minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0:
 
 "mission-game-server@git+https://github.com/acbabis/mission-game-server.git":
   version "0.0.0"
-  resolved "git+https://github.com/acbabis/mission-game-server.git#04186992d0c13212dc127b16df9e03402790e375"
+  resolved "git+https://github.com/acbabis/mission-game-server.git#563e035e52004c32c5488dfb036941a387924054"
   dependencies:
     express "4.16.1"
     geolib "^2.0.23"
