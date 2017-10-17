@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import Util from '../Util';
 
-import spinner from './spinner.svg';
-
 export default class LobbyRoom extends Component {
   constructor() {
     super();
@@ -44,12 +42,7 @@ export default class LobbyRoom extends Component {
         </div>
         {
           isUserHost ? '' :
-            <img
-              src={spinner}
-              alt="Loading"
-              width="100"
-              height="100"
-            />
+            <p className="waiting">Waiting for other players</p>
         }
         <div className="menu-container">
           {

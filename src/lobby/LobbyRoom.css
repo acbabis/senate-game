@@ -44,6 +44,12 @@
   height: initial;
 }
 
+.lobby-room p.waiting {
+  margin: 1em;
+  text-align: center;
+  font-size: 2em;
+}
+
 .lobby-room button.leave {
   background-color: #500;
 }
