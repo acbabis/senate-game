@@ -5,7 +5,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "express-https-redirect": "^1.0.0",
-    "mission-game-server": "git+https://github.com/acbabis/mission-game-server.git",
+    "mission-game-server": "^0.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "dev-start": "concurrently \"npm run dev-client\" \"npm run dev-server\"",
     "dev-client": "react-scripts start",
-    "dev-server": "node ./node_modules/mission-game-server/src/server.js"
+    "dev-server": "mission-game-server --port=3001"
   },
   "proxy": {
     "/": {
